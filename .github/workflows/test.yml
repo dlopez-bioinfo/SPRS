@@ -7,6 +7,14 @@ jobs:
   init:
     runs-on: ubuntu-latest
     steps:
+    - name: Cache downloaded files
+      id: cache-files
+      uses: actions/cache@v3
+      with:
+        path: ~/test
+        key: 
+          
+    # TODO: descargar de un budle de zenodo!!!
     - name: download_ref
       run: |
         wget http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5.*
