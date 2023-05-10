@@ -10,7 +10,7 @@
 -------------------------------------------------------------
 
 ## Summary
-*sprs* is a bioinformatics pipeline for calculating Polygenic Risk Scores (PRS) from [PDG catalog](https://www.pgscatalog.org) on a set of samples so that they can be compared to the [Spanish PRS reference distributions](http://csvs.clinbioinfosspa.es/?tab=prs). The pipeline was designed to fix common VCF malformations, impute missing values and eventually generate a sample sheet to feed the [pgsc_calc](https://github.com/PGScatalog/pgsc_calc) pipeline.
+*sprs* is a bioinformatics pipeline for calculating Polygenic Risk Scores (PRS) from [PDG catalog](https://www.pgscatalog.org) on a set of samples so that they can be compared to the [Spanish PRS reference distributions](http://csvs.clinbioinfosspa.es/?tab=prs). The pipeline was designed to fix common VCF malformations, impute missing values and eventually generate a sample sheet to feed the [pgsc_calc](https://github.com/PGScatalog/pgsc_calc) tool.
 
 The pipeline is built using Nextflow, a workflow tool to run tasks across multiple compute infrastructures in a very portable manner. It uses Docker/Singularity containers making installation trivial and results highly reproducible. The Nextflow DSL2 implementation of this pipeline uses one container per process which makes it much easier to maintain and update software dependencies.
 
