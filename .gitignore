@@ -1,0 +1,8 @@
+work
+.nextflow*
+results
+test
+resources/minimac4
+resources/shapeit4
+resources/ref
+TODO.txt
