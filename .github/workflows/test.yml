@@ -1,0 +1,42 @@
+name: Test pipeline
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+    - name: download_ref
+      run: |
+        wget http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/phase2_reference_assembly_sequence/hs37d5.*
+        gunzip *.gz
+        
+    - name: download_shapeit_map
+      run: |
+        wget https://github.com/odelaneau/shapeit4/blob/master/maps/genetic_maps.b37.tar.gz
+        tar -zxvf genetic_maps.b37.tar.gz
+        
+    - name: download_minimac_ref
+      run: |
+        wget http://share.sph.umich.edu/minimac3/G1K_P3_M3VCF_FILES_WITH_ESTIMATES.tar.gz
+        tar -zxvf G1K_P3_M3VCF_FILES_WITH_ESTIMATES.tar.gz
+        
+    - name: download_samples
+      run: |
+      
+    - name: split_vcf
+      uses: kohlerdominik/docker-run-action@v1
+      with:
+        image: alpine:latest
+        run: |
+          echo "hello world"
+          uname -a
+      
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: nf-core/setup-nextflow@v1.2.0
+      - run: nextflow run ${GITHUB_WORKSPACE}
